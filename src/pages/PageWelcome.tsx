@@ -5,6 +5,6 @@ export const PageWelcome = () => {
 	const message = 'welcome to this site';
 	
 	return (
-		<p>{tools.capitalizeFirstLette}</p>
+		<p>{tools.capitalizeFirstLetter(message)}</p>
 	)
 }
