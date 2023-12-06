@@ -1,3 +1,5 @@
+import * as tools from './tools';
+
 /**
  * capitalizeFirstLetter()
  *
@@ -6,16 +8,42 @@
  * "This is a test"
  */
 export const capitalizeFirstLetter = (text: string) => {
-	return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+	let tempFirstLetter = '';
+	let r = text;
+
+	if (r.startsWith('¿')) {
+		tempFirstLetter = '¿';
+		r = r.slice(1);
+	}
+
+	r = r.charAt(0).toUpperCase() + r.slice(1).toLowerCase();
+
+	if (tempFirstLetter !== '') {
+		r = tempFirstLetter + r;
+	}
+
+	return r;
 };
 
 /**
  * sentencize()
- * 
+ *
  * sentencize('this is a message')
- * 
+ *
  * "This is a message."
  */
 export const sentencize = (text: string) => {
-	return "nnn";
+	let r = text;
+
+	if (",:;".includes(r.slice(-1))) {
+		r = r.slice(0, -1);
+	}
+
+	if (!".!?".includes(r.slice(-1))) {
+		r += ".";
+	}
+
+	r = tools.capitalizeFirstLetter(r);
+
+	return r;
 };
