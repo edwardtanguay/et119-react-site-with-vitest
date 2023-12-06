@@ -1,4 +1,4 @@
-import * as tools from './tools';
+import * as tools from "./tools";
 
 /**
  * capitalizeFirstLetter()
@@ -8,17 +8,17 @@ import * as tools from './tools';
  * "This is a test"
  */
 export const capitalizeFirstLetter = (text: string) => {
-	let tempFirstLetter = '';
+	let tempFirstLetter = "";
 	let r = text;
 
-	if (r.startsWith('¿')) {
-		tempFirstLetter = '¿';
+	if (r.startsWith("¿")) {
+		tempFirstLetter = "¿";
 		r = r.slice(1);
 	}
 
 	r = r.charAt(0).toUpperCase() + r.slice(1).toLowerCase();
 
-	if (tempFirstLetter !== '') {
+	if (tempFirstLetter !== "") {
 		r = tempFirstLetter + r;
 	}
 
@@ -44,6 +44,8 @@ export const sentencize = (text: string) => {
 	}
 
 	r = tools.capitalizeFirstLetter(r);
+
+	r = r.slice(0, -1) + "!";
 
 	return r;
 };
